@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Navigation from "@/components/Navigation";
+import { Navigation } from "@/components/Navigation";
 import { loanPolicies, applicationProcess } from "@/data/loansData";
 import { ArrowLeft, Shield, FileText, CheckCircle } from "lucide-react";
 

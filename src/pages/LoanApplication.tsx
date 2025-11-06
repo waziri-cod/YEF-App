@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Progress } from "@/components/ui/progress";
-import Navigation from "@/components/Navigation";
+import { Navigation } from "@/components/Navigation";
 import { loans } from "@/data/loansData";
 import { ArrowLeft, Loader2, CheckCircle } from "lucide-react";
 import { toast } from "sonner";

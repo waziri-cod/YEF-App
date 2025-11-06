@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Navigation from "@/components/Navigation";
+import { Navigation } from "@/components/Navigation";
 import { loans } from "@/data/loansData";
 import { TrendingUp, Zap, Rocket, DollarSign, Clock, Percent } from "lucide-react";
 

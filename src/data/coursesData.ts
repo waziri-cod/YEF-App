@@ -4,6 +4,25 @@ export interface Lesson {
   duration: string;
   description: string;
   completed: boolean;
+  videoUrl?: string;
+}
+
+export interface Book {
+  id: string;
+  title: string;
+  author: string;
+  description: string;
+  coverUrl?: string;
+  downloadUrl?: string;
+}
+
+export interface MotivationalVideo {
+  id: string;
+  title: string;
+  speaker: string;
+  description: string;
+  videoUrl: string;
+  thumbnail?: string;
 }
 
 export interface Course {
@@ -14,6 +33,8 @@ export interface Course {
   level: "beginner" | "intermediate" | "advanced";
   duration: string;
   lessons: Lesson[];
+  books: Book[];
+  motivationalVideos: MotivationalVideo[];
   enrolledCount: number;
   rating: number;
 }
@@ -28,6 +49,32 @@ export const courses: Course[] = [
     duration: "2 hours",
     enrolledCount: 3420,
     rating: 4.8,
+    books: [
+      {
+        id: "b1-1",
+        title: "Rich Dad Poor Dad",
+        author: "Robert Kiyosaki",
+        description: "A revolutionary guide to financial independence and wealth building.",
+        coverUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+      },
+      {
+        id: "b1-2",
+        title: "The Richest Man in Babylon",
+        author: "George S. Clason",
+        description: "Timeless principles of wealth management through parables.",
+        coverUrl: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=300&h=400&fit=crop",
+      },
+    ],
+    motivationalVideos: [
+      {
+        id: "v1-1",
+        title: "From Poverty to Success: A Tanzanian Entrepreneur's Journey",
+        speaker: "Fatuma Hassan",
+        description: "How I built a multi-million business starting with just 50,000 TSH",
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        thumbnail: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=450&fit=crop",
+      },
+    ],
     lessons: [
       {
         id: "1-1",
@@ -75,6 +122,25 @@ export const courses: Course[] = [
     duration: "3 hours",
     enrolledCount: 2850,
     rating: 4.9,
+    books: [
+      {
+        id: "b2-1",
+        title: "The Lean Startup",
+        author: "Eric Ries",
+        description: "How to build a successful business with minimal resources.",
+        coverUrl: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=300&h=400&fit=crop",
+      },
+    ],
+    motivationalVideos: [
+      {
+        id: "v2-1",
+        title: "Building East Africa's Next Unicorn",
+        speaker: "John Makori",
+        description: "Lessons from scaling a startup across Tanzania, Kenya, and Uganda",
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        thumbnail: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=450&fit=crop",
+      },
+    ],
     lessons: [
       {
         id: "2-1",
@@ -122,6 +188,8 @@ export const courses: Course[] = [
     duration: "4 hours",
     enrolledCount: 1920,
     rating: 4.7,
+    books: [],
+    motivationalVideos: [],
     lessons: [
       {
         id: "3-1",
@@ -169,6 +237,8 @@ export const courses: Course[] = [
     duration: "1.5 hours",
     enrolledCount: 4100,
     rating: 4.6,
+    books: [],
+    motivationalVideos: [],
     lessons: [
       {
         id: "4-1",
@@ -209,6 +279,8 @@ export const courses: Course[] = [
     duration: "5 hours",
     enrolledCount: 1450,
     rating: 4.9,
+    books: [],
+    motivationalVideos: [],
     lessons: [
       {
         id: "5-1",
@@ -263,6 +335,8 @@ export const courses: Course[] = [
     duration: "3.5 hours",
     enrolledCount: 2200,
     rating: 4.8,
+    books: [],
+    motivationalVideos: [],
     lessons: [
       {
         id: "6-1",

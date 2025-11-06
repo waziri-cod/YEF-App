@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import Navigation from "@/components/Navigation";
+import { Navigation } from "@/components/Navigation";
 import {
   Users,
   MessageSquare,
