@@ -121,11 +121,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 > Made with ❤️ by **Waziri Shaban Waziri** ([@waziri-cod](https://github.com/waziri-cod))
-
-```
-
----
-
-If you like, I can **generate a version with badges** (e.g., build status, coverage, license) and **embed screenshots** of the app to make the README even more compelling. Would you like me to add that?
-::contentReference[oaicite:0]{index=0}
-```
