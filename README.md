@@ -1,3 +1,43 @@
+YEF - Youth Empower Finance (TYE App)
+
+Overview:
+This project contains a React + TypeScript frontend (Vite) and a Node/Express + TypeScript backend that uses MongoDB.
+
+Owner / CEO: You (project owner)
+
+Quick Start (PowerShell):
+1) Install dependencies in repo root:
+npm install
+2) Install backend dependencies:
+Set-Location '.\backend'
+npm install
+3) Ensure MongoDB is running (local or Docker)
+4) Seed the database:
+Set-Location '.\backend'
+npm run seed
+5) Run backend and frontend in two terminals:
+Set-Location '.\backend'
+npm run dev
+Set-Location '..'
+npm run dev
+
+Environment variables:
+- backend/.env: MONGODB_URI, PORT, JWT_SECRET, NODE_ENV
+- frontend: .env.local -> VITE_API_BASE_URL
+
+Logo / assets:
+Place logo at src/assets/logo.png or src/assets/logo.svg. Alternatively use public/logo.png.
+
+Test credentials (from seed):
+Admin: admin@yef.local / admin123
+User: user@yef.local / user123
+
+Troubleshooting:
+- If ts-node not found, run npm install in backend
+- If fetch blocked by CSP, update index.html meta or server headers
+- If Vite import error, ensure asset path exists
+
+If you want me to include your real name/title in this README, tell me and I will update it.
 # Welcome to your Lovable project
 
 ## Project info
