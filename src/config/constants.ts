@@ -48,6 +48,9 @@ export const ROUTES = {
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",
   
+  // Chatbot
+  CHAT: "/chat",
+
   // Error Routes
   NOT_FOUND: "*",
 } as const;

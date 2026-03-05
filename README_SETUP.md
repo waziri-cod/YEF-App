@@ -30,9 +30,9 @@ This is a Youth Empower Finance (YEF) platform for providing microloans to young
 - Real-time authentication state synchronization
 
 ### 4. AI Integration
-- OpenAI API integration for credit scoring
+- OpenAI API integration for credit scoring (proxied through backend)
 - AI-powered loan application analysis
-- Financial advice chatbot
+- Financial advice chatbot with persistent conversation history
 - Fallback mock scoring when API key is not configured
 
 ## Setup Instructions
@@ -66,6 +66,24 @@ VITE_FIREBASE_APP_ID=your-app-id
 
 # OpenAI API Key (Optional - for AI features)
 VITE_OPENAI_API_KEY=your-openai-api-key
+
+# Frontend AI proxy (points to backend route, default is same origin)
+VITE_AI_API_URL=/api/ai
+
+# Backend AI Proxy (if running the Node backend) – set this in `backend/.env`
+OPENAI_API_KEY=your-openai-api-key
+
+(To keep the key out of browser builds the frontend now talks to a server
+route; you can still configure `VITE_OPENAI_API_KEY` for direct access during
+early development.)
+
+# Backend AI Proxy (if running the Node backend) – set this in `backend/.env`
+OPENAI_API_KEY=your-openai-api-key
+
+(To keep the key out of browser builds the frontend now talks to a server
+route; you can still configure `VITE_OPENAI_API_KEY` for direct access during
+early development.)
+>>>>>>> cac4417 (Initial project commit with AI enhancements)
 ```
 
 ### 4. Firestore Security Rules
@@ -140,6 +158,25 @@ yef-bloom-funds/
 
 ## Usage
 
+### Git and Deployment
+The canonical repository is hosted at https://github.com/waziri-cod/YEF-App.git. After making local changes (such as UI/AI updates), commit and push:
+
+```bash
+git add .
+git commit -m "Enhance navigation animations and AI chat feature"
+git push origin main
+```
+
+If you are setting up the repo for the first time:
+
+```bash
+git remote add origin https://github.com/waziri-cod/YEF-App.git
+git branch -M main
+git push -u origin main
+```
+
+
+## Usage
 ### Sign In
 1. Navigate to `/signin`
 2. Enter email and password

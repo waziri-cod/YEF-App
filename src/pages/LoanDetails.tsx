@@ -190,7 +190,7 @@ const LoanDetails = () => {
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <p>📞 Call: +255 123 456 789</p>
                     <p>📧 Email: loans@yef.co.tz</p>
-                    <p>💬 Chat: Available 24/7</p>
+                    <p>💬 <a href="/chat" className="text-primary underline">Chat</a> 24/7</p>
                   </div>
                 </div>
               </Card>

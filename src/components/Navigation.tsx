@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Home, DollarSign, BookOpen, Users, LayoutDashboard, UserCircle, Menu, LogIn, UserPlus, LogOut, ShoppingBag, Lock, BarChart3 } from "lucide-react";
+import { Home, DollarSign, BookOpen, Users, LayoutDashboard, UserCircle, Menu, LogIn, UserPlus, LogOut, ShoppingBag, Lock, BarChart3, MessageCircle } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { NotificationsPanel } from "./NotificationsPanel";
@@ -8,7 +8,7 @@ import logoPng from '@/assets/logo.svg';
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuthStore } from "@/store/authStore";
 import { cn } from "@/lib/utils";
 
@@ -19,18 +19,29 @@ export function Navigation() {
   const { user, logout } = useAuthStore();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false); // hide when scrolling down
+  const lastScroll = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const y = window.scrollY;
+      setIsScrolled(y > 10);
+      if (y > lastScroll.current && y > 100) {
+        setHidden(true); // user scrolled down
+      } else {
+        setHidden(false); // user scrolled up
+      }
+      lastScroll.current = y;
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // reorder: put Chat close to Loans for better visibility
   const navItems = [
     { to: "/", icon: Home, label: t("home") },
     { to: "/loans", icon: DollarSign, label: t("loans") },
+    { to: ROUTES.CHAT, icon: MessageCircle, label: "Chat" },
     { to: "/loan-packages", icon: DollarSign, label: "Loan Packages" },
     { to: "/marketplace", icon: ShoppingBag, label: "Marketplace" },
     { to: "/courses", icon: BookOpen, label: t("courses") },
@@ -52,10 +63,11 @@ export function Navigation() {
   return (
     <nav 
       className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-300",
+        "sticky top-0 z-50 border-b transition-all duration-300 transform",
+        hidden && "-translate-y-full",
         isScrolled 
-          ? "bg-card/98 backdrop-blur-md shadow-lg border-border/50" 
-          : "bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 border-border"
+          ? "bg-card/98 backdrop-blur-md shadow-lg border-border/50 h-14"
+          : "bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 border-border h-16"
       )}
     >
       <div className="container mx-auto px-4">
@@ -86,11 +98,11 @@ export function Navigation() {
                     key={item.to}
                     to={item.to}
                     className={cn(
-                      "relative flex items-center px-3 py-2 rounded-md transition-all duration-300 hover:bg-accent/50",
-                      isActive && "text-primary font-semibold"
+                      "relative flex items-center px-3 py-2 rounded-md transition-transform duration-300 transform hover:scale-110 hover:-translate-y-0.5 hover:text-primary",
+                      isActive && "text-primary font-semibold scale-105"
                     )}
                   >
-                    <Icon className="w-4 h-4 mr-2" />
+                    <Icon className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
                     {item.label}
                     {isActive && (
                       <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full animate-in slide-in-from-left duration-300" />

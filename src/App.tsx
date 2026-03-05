@@ -37,6 +37,9 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Diagnostic from "./pages/Diagnostic";
 
+// AI chat
+import ChatPage from "./pages/Chat";
+
 // New Feature Components
 import LoanPackagesPage from "./pages/LoanPackagesPage";
 import MarketplacePage from "./pages/MarketplacePage";
@@ -103,6 +106,7 @@ const AppContent = () => {
         
         {/* Community Routes */}
         <Route path={ROUTES.MENTORSHIP} element={<Mentorship />} />
+        <Route path={ROUTES.CHAT} element={<ChatPage />} />
         
         {/* User Routes */}
         <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />

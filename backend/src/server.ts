@@ -8,6 +8,7 @@ import loanPackagesRouter from "./routes/loanPackages";
 import loanApplicationsRouter from "./routes/loanApplications";
 import paymentsRouter from "./routes/payments";
 import statsRouter from "./routes/stats";
+import aiRouter from "./routes/ai";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use("/api/loan-packages", loanPackagesRouter);
 app.use("/api/loan-applications", loanApplicationsRouter);
 app.use("/api/payments", paymentsRouter);
 app.use("/api/stats", statsRouter);
+app.use("/api/ai", aiRouter);
 
 const PORT = process.env.PORT || 5050;
 
