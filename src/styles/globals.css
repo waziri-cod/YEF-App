@@ -1,0 +1,295 @@
+/**
+ * ============================================
+ * GLOBAL STYLES
+ * ============================================
+ * Base styles, resets, and global utilities
+ * Organized by: Base → Components → Utilities
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   DESIGN SYSTEM VARIABLES
+   ============================================
+   All design tokens defined here using HSL color space
+   Organized by: Light Theme → Dark Theme → Utilities
+*/
+
+@layer base {
+  /**
+   * Light Theme Variables
+   * Base color palette for light mode
+   */
+  :root {
+    /* Background Colors */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 13%;
+
+    /* Card Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+
+    /* Popover Colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 13%;
+
+    /* Primary Brand Colors */
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 211 100% 65%;
+
+    /* Secondary Colors */
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 220 13% 13%;
+
+    /* Accent Colors */
+    --accent: 42 100% 50%;
+    --accent-foreground: 220 13% 13%;
+
+    /* Success Colors */
+    --success: 134 61% 41%;
+    --success-foreground: 0 0% 100%;
+
+    /* Muted Colors */
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Destructive/Error Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & Input Colors */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 211 100% 50%;
+
+    /* Border Radius */
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(211 100% 50%), hsl(250 100% 65%));
+    --gradient-card: linear-gradient(to bottom, hsl(0 0% 100%), hsl(220 13% 98%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 13% 13% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 13% 13% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 13% 13% / 0.1);
+    --shadow-glow: 0 0 30px hsl(211 100% 50% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /**
+   * Dark Theme Variables
+   * Adjusted color palette for dark mode
+   */
+  .dark {
+    /* Background Colors */
+    --background: 220 18% 10%;
+    --foreground: 0 0% 98%;
+
+    /* Card Colors */
+    --card: 220 15% 15%;
+    --card-foreground: 0 0% 98%;
+
+    /* Popover Colors */
+    --popover: 220 15% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary Brand Colors */
+    --primary: 211 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 211 100% 70%;
+
+    /* Secondary Colors */
+    --secondary: 220 13% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Accent Colors */
+    --accent: 42 100% 55%;
+    --accent-foreground: 220 13% 10%;
+
+    /* Success Colors */
+    --success: 134 61% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Muted Colors */
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 9% 60%;
+
+    /* Destructive/Error Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & Input Colors */
+    --border: 220 13% 25%;
+    --input: 220 13% 25%;
+    --ring: 211 100% 55%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(211 100% 40%), hsl(250 100% 50%));
+    --gradient-card: linear-gradient(to bottom, hsl(220 15% 15%), hsl(220 15% 18%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.2);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 30px hsl(211 100% 50% / 0.5);
+  }
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================
+   Global resets and base element styles
+*/
+
+@layer base {
+  /**
+   * Global Reset
+   * Ensures consistent styling across browsers
+   */
+  * {
+    @apply border-border;
+  }
+
+  /**
+   * Body Styles
+   * Base typography and layout
+   */
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+  }
+
+  /**
+   * Typography
+   * Heading styles and text hierarchy
+   */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  /**
+   * Focus Styles
+   * Accessibility-focused focus indicators
+   */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /**
+   * Selection Styles
+   * Custom text selection colors
+   */
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+
+  ::-moz-selection {
+    @apply bg-primary/20 text-foreground;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================
+   Reusable utility classes for common patterns
+*/
+
+@layer utilities {
+  /**
+   * Gradient Utilities
+   * Pre-defined gradient backgrounds
+   */
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /**
+   * Shadow Utilities
+   * Enhanced shadow effects
+   */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /**
+   * Transition Utilities
+   * Consistent animation timing
+   */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+
+  .transition-slow {
+    transition: var(--transition-slow);
+  }
+
+  /**
+   * Hover Effects
+   * Interactive element animations
+   */
+  .hover-lift {
+    @apply transition-smooth hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .hover-glow {
+    @apply transition-smooth hover:shadow-glow;
+  }
+
+  /**
+   * Scroll Behavior
+   * Smooth scrolling
+   */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /**
+   * Text Utilities
+   * Text truncation and wrapping
+   */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
